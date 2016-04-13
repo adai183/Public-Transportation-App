@@ -30,11 +30,13 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import promise from 'redux-promise';
 
-// Import components and reducers
+// Import components and reducers and middlewares
 import App from './components/app';
 import reducers from './reducers';
+import logActions from './middlewares/log'
 
 const createStoreWithMiddleware = applyMiddleware(
+  logActions,
   promise
 )(createStore);
 
